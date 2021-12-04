@@ -21,5 +21,8 @@ Route::get('/', function () {
 Route::get('/login',[CustomAuthController::class, 'login']);
 Route::get('/registration',[CustomAuthController::class, 'registration']);
 Route::get('/forgotpass',[CustomAuthController::class, 'forgotPass']);
+Route::get('/dashboard',[CustomAuthController::class, 'dashboard']);
 
 Route::post('/register-user', [CustomAuthController::class, 'registerUser'])->name('register-user');
+Route::post('/login-user', [CustomAuthController::class, 'loginUser'])->name('login-user');
+

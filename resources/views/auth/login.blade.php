@@ -15,16 +15,27 @@
             <div class="col-md-4 col-md-offset-4" style="margin-top: 60px;">
                 <h3>Bejelentkezés</h3>
                 <hr>
-                <form>
+                <form action="{{route('login-user')}}" method="post">
 
+                    @if(Session::has('success'))
+                    <div class="alert alert-sucess">{{Session::get('success')}}</div>
+                    @endif
+                    @if(Session::has('failed'))
+                    <div class="alert alert-danger">{{Session::get('failed')}}</div>
+                    @endif
+
+
+                    @csrf
                     <div class="form-group">
                         <label for="username">Felhasználónév</label>
-                        <input type="text" class="form-control" placeholder="Add meg a Felhasználóneved" name="name" value="">
+                        <input type="text" class="form-control" placeholder="Add meg a Felhasználóneved" name="username" value="{{old('username')}}">
+                        <span class="text-danger">@error('username') {{$message}} @enderror</span>
                     </div>
-                  
+
                     <div class="form-group">
                         <label for="password">Jelszó</label>
-                        <input type="text" class="form-control" placeholder="Add meg a Jelszavad" name="password" value="">
+                        <input type="password" class="form-control" placeholder="Add meg a Jelszavad" name="password" value="{{old('password')}}">
+                        <span class="text-danger">@error('password') {{$message}} @enderror</span>
                     </div>
 
 

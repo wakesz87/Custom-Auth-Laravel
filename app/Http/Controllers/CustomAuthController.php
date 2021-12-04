@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+
 
 class CustomAuthController extends Controller
 {
@@ -26,7 +28,7 @@ class CustomAuthController extends Controller
      public function registerUser(Request $request)
      {
           $request->validate([
-               'username' => 'required|unique:users|max:12',
+               'username' => 'required|max:12|unique:users',
                'email' => 'required|email',
                'password' => 'required|min:5|max:12',
                'lastname' => 'required|max:25',
@@ -50,10 +52,33 @@ class CustomAuthController extends Controller
           $user->postalcode = $request->postalcode;
           $user->adress = $request->adress;
           $res = $user->save();
-          if($res){
-               return back()->with('success','A regisztrációd sikerült!');
-          }else{
-               return back()->with('failed','A regisztrációd sikertelen!');
+          if ($res) {
+               return back()->with('success', 'A regisztrációd sikerült!');
+          } else {
+               return back()->with('failed', 'A regisztrációd sikertelen!');
           }
+     }
+
+     public function loginUser(Request $request)
+     {
+          $request->validate([
+               'username' => 'required|max:12|unique:users',
+               'password' => 'required|min:5|max:12',
+          ]);
+
+          $user = User::where('username', '=', $request->username)->first();
+          if ($user) {
+               if (Hash::check($request->password, $user->password)) {
+                    $request->session()->put('loginId', $user->id);
+                    return redirect('dashboard');
+               } else {
+                    return back()->with('failed', 'Hibás jelszó');
+               }
+          } else {
+               return back()->with('failed', 'Ez a felhasználónév nem regisztrált!');
+          }
+     }
+     public function dashboard(){
+          return "Welcome";
      }
 }
