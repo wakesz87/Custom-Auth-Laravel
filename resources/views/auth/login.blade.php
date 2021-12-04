@@ -9,47 +9,54 @@
     <title>Bejelentkezés</title>
 </head>
 
-<body>
+<body class="bg-dark">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-md-offset-4" style="margin-top: 60px;">
-                <h3>Bejelentkezés</h3>
-                <hr>
-                <form action="{{route('login-user')}}" method="post">
+            <div class="col-lg-6 m-auto">
+                <div class="card mt-5">
+                    <div class="card-title">
+                        <h3 class="text-center py-4">Bejelentkezés</h3>
+                        <div class="card-body">
+                            <hr>
+                            <form action="{{route('login-user')}}" method="post">
 
-                    @if(Session::has('success'))
-                    <div class="alert alert-sucess">{{Session::get('success')}}</div>
-                    @endif
-                    @if(Session::has('failed'))
-                    <div class="alert alert-danger">{{Session::get('failed')}}</div>
-                    @endif
+                                @if(Session::has('success'))
+                                <div class="alert alert-sucess">{{Session::get('success')}}</div>
+                                @endif
+                                @if(Session::has('failed'))
+                                <div class="alert alert-danger">{{Session::get('failed')}}</div>
+                                @endif
 
 
-                    @csrf
-                    <div class="form-group">
-                        <label for="username">Felhasználónév</label>
-                        <input type="text" class="form-control" placeholder="Add meg a Felhasználóneved" name="username" value="{{old('username')}}">
-                        <span class="text-danger">@error('username') {{$message}} @enderror</span>
+                                @csrf
+                                <div class="form-group">
+                                    <label for="username">Felhasználónév</label>
+                                    <input type="text" class="form-control" placeholder="Add meg a Felhasználóneved" name="username" value="{{old('username')}}">
+                                    <span class="text-danger">@error('username') {{$message}} @enderror</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password">Jelszó</label>
+                                    <input type="password" class="form-control" placeholder="Add meg a Jelszavad" name="password" value="{{old('password')}}">
+                                    <span class="text-danger">@error('password') {{$message}} @enderror</span>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <button class="btn btn-block btn-warning" type="submit">Bejelentkezés</button>
+                                </div>
+                                <br>
+                                <a href="registration">Ha még nem regisztráltál, katt ide!</a>
+                                <br>
+                                <a href="forgotpass">Elfelejtett jelszó, katt ide!</a>
+                            </form>
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label for="password">Jelszó</label>
-                        <input type="password" class="form-control" placeholder="Add meg a Jelszavad" name="password" value="{{old('password')}}">
-                        <span class="text-danger">@error('password') {{$message}} @enderror</span>
-                    </div>
-
-
-                    <div class="form-group">
-                        <button class="btn btn-block btn-warning" type="submit">Bejelentkezés</button>
-                    </div>
-                    <br>
-                    <a href="registration">Ha még nem regisztráltál, katt ide!</a>
-                    <br>
-                    <a href="forgotpass">Elfelejtett jelszó, katt ide!</a>
-                </form>
+                </div>
             </div>
         </div>
     </div>
+
 
 </body>
 

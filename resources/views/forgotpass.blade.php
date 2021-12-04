@@ -9,46 +9,53 @@
     <title>Elfelejtett Jelszó</title>
 </head>
 
-<body>
+<body class="bg-dark">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-md-offset-4" style="margin-top: 60px;">
-                <h3>Elfelejtett Jelszó</h3>
-                <hr>
-                <form>
+            <div class="col-lg-6 m-auto">
+                <div class="card mt-5">
+                    <div class="card-title">
+                        <h3 class="text-center py-4">Elfelejtett jelszó</h3>
+                        <div class="card-body">
+                            <hr>
+                            <form>
 
-                    <div class="form-group">
-                        <label for="username">Felhasználónév</label>
-                        <input type="text" class="form-control" placeholder="Add meg a Felhasználóneved" name="name" value="">
+                                <div class="form-group">
+                                    <label for="username">Felhasználónév</label>
+                                    <input type="text" class="form-control" placeholder="Add meg a Felhasználóneved" name="name" value="">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email cím</label>
+                                    <input type="email" class="form-control" placeholder="Add meg az Email címed" name="email" value="">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="newpassword">Új jelszó</label>
+                                    <input type="text" class="form-control" placeholder="Add meg az  Új jelszavad" name="newpassword" value="">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="newpassword">Új jelszó</label>
+                                    <input type="text" class="form-control" placeholder="Add meg az  Új jelszavad mégegszer" name="newpassword" value="">
+                                </div>
+
+
+                                <div class="form-group">
+                                    <button class="btn btn-block btn-warning" type="submit">Új jelszó</button>
+                                </div>
+
+                                <br>
+                                <a href="login">Vissza lépés a bejelentkezéshez!</a>
+
+                            </form>
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label for="email">Email cím</label>
-                        <input type="email" class="form-control" placeholder="Add meg az Email címed" name="email" value="">
-                    </div>
-                  
-                    <div class="form-group">
-                        <label for="newpassword">Új jelszó</label>
-                        <input type="text" class="form-control" placeholder="Add meg az  Új jelszavad" name="newpassword" value="">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="newpassword">Új jelszó</label>
-                        <input type="text" class="form-control" placeholder="Add meg az  Új jelszavad mégegszer" name="newpassword" value="">
-                    </div>
-
-
-                    <div class="form-group">
-                        <button class="btn btn-block btn-warning" type="submit">Új jelszó</button>
-                    </div>
-
-                    <br>
-                    <a href="login">Vissza lépés a bejelentkezéshez!</a>
-
-                </form>
+                </div>
             </div>
         </div>
     </div>
+
 
 </body>
 
