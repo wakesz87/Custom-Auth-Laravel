@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class CustomAuthController extends Controller
 {
@@ -25,7 +26,7 @@ class CustomAuthController extends Controller
      public function registerUser(Request $request)
      {
           $request->validate([
-               'username' => 'required|unique:users',
+               'username' => 'required|unique:users|max:12',
                'email' => 'required|email',
                'password' => 'required|min:5|max:12',
                'lastname' => 'required|max:25',
@@ -40,7 +41,7 @@ class CustomAuthController extends Controller
           $user = new User();
           $user->username = $request->username;
           $user->email = $request->email;
-          $user->password = $request->password;
+          $user->password =  Hash::make($request->password);
           $user->lastname = $request->lastname;
           $user->firstname = $request->firstname;
           $user->birthdate = $request->birthdate;
