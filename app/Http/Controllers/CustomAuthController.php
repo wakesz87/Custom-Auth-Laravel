@@ -62,8 +62,8 @@ class CustomAuthController extends Controller
      public function loginUser(Request $request)
      {
           $request->validate([
-               'username' => 'required|max:12|unique:users',
-               'password' => 'required|min:5|max:12',
+               'username' => 'required|max:12',
+               'password' => 'required|min:5|max:12'
           ]);
 
           $user = User::where('username', '=', $request->username)->first();
