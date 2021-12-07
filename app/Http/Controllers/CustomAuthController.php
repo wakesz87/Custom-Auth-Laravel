@@ -29,7 +29,7 @@ class CustomAuthController extends Controller
      {
           $request->validate([
                'username' => 'required|max:12|unique:users',
-               'email' => 'required|email',
+               'email' => 'required|email|unique:users',
                'password' => 'required|min:5|max:12',
                'lastname' => 'required|max:25',
                'firstname' => 'required|max:25',
