@@ -18,31 +18,41 @@
                         <h3 class="text-center py-4">Elfelejtett jelszó</h3>
                         <div class="card-body">
                             <hr>
-                            <form>
+                            <form action="{{route('login-user')}}" method="post">
 
-                                <div class="form-group">
-                                    <label for="username">Felhasználónév</label>
-                                    <input type="text" class="form-control" placeholder="Add meg a Felhasználóneved" name="name" value="">
-                                </div>
+                                @if(Session::has('success'))
+                                <div class="alert alert-sucess">{{Session::get('success')}}</div>
+                                @endif
+                                @if(Session::has('failed'))
+                                <div class="alert alert-danger">{{Session::get('failed')}}</div>
+                                @endif
 
+
+                                @csrf
                                 <div class="form-group">
                                     <label for="email">Email cím</label>
-                                    <input type="email" class="form-control" placeholder="Add meg az Email címed" name="email" value="">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="newpassword">Új jelszó</label>
-                                    <input type="text" class="form-control" placeholder="Add meg az  Új jelszavad" name="newpassword" value="">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="newpassword">Új jelszó</label>
-                                    <input type="text" class="form-control" placeholder="Add meg az  Új jelszavad mégegszer" name="newpassword" value="">
+                                    <input type="text" class="form-control" placeholder="Add meg az Email címed" name="email" value="{{old('email')}}">
+                                    <span class="text-danger">@error('email') {{$message}} @enderror</span>
                                 </div>
 
 
                                 <div class="form-group">
-                                    <button class="btn btn-block btn-warning" type="submit">Új jelszó</button>
+                                    <label for="password">Új jelszó</label>
+                                    <input type="password" class="form-control" placeholder="Add meg a Jelszavad" name="password" value="{{old('password')}}">
+                                    <span class="text-danger">@error('password') {{$message}} @enderror</span>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="password">Új jelszó megerősítése</label>
+                                    <input type="password" class="form-control" placeholder="Add meg a Jelszavad" name="password" value="{{old('password')}}">
+                                    <span class="text-danger">@error('password') {{$message}} @enderror</span>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <button class="btn btn-block btn-warning" type="submit">Új jelszó igénylése</button>
                                 </div>
 
                                 <br>

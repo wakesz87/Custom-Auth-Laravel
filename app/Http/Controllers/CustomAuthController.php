@@ -22,7 +22,7 @@ class CustomAuthController extends Controller
 
      public function forgotPass()
      {
-          return view("forgotpass");
+          return view("pass.forgotpass");
      }
 
      public function registerUser(Request $request)

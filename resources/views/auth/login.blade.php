@@ -15,7 +15,7 @@
             <div class="col-lg-6 m-auto">
                 <div class="card mt-5">
                     <div class="card-title">
-                        <h3 class="text-center py-4">Bejelentkezés</h3>
+                        <h3 class="text-center py-6">Bejelentkezés</h3>
                         <div class="card-body">
                             <hr>
                             <form action="{{route('login-user')}}" method="post">

@@ -9,34 +9,33 @@
     <title>Bejelentkezés</title>
 </head>
 
-<body>
 
-    <body class="bg-dark">
+<body class="bg-dark">
 
-        <div class="container">
-            <div class="row">
-                <div class="col m-auto">
-                    <div class="card mt-5">
-                        <table class="table table-bordered">
-                            <tr>
-                                <td> Felhasználónév </td>
-                                <td> Kilépés </td>
-                            </tr>
+    <div class="container">
+        <div class="row">
+            <div class="col m-auto">
+                <div class="card mt-5">
+                    <table class="table table-bordered">
+                        <tr>
+                            <td> Felhasználónév </td>
+                            <td> Kilépés </td>
+                        </tr>
 
 
-                            <tr>
-                                <td>{{$data->username}}</td>
-                                <td><a href="logout">Kilépés</a></td>
+                        <tr>
+                            <td>{{$data->username}}</td>
+                            <td><a href="logout">Kilépés</a></td>
 
-                            </tr>
-                        </table>
-                    </div>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</body>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
 </html>
